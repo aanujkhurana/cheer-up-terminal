@@ -47,7 +47,8 @@ cheerup
 
 ## How Does It Work?
 
-- **ASCII Art:** Prints a cheerful ASCII bunny with a message.
+- **Personalized Greeting:** On first run, the CLI prompts you for your name and favorite emoji, then remembers your choices for future runs.
+- **Greeting Output:** Each time you run the tool, it displays a greeting like `/ >🎉 Hi jv cheer up!` with your chosen name and emoji.
 - **Random Quote:** Shows a random quote using the `fortune` command (if installed). If not, it displays a default message.
 - **Cowsay Integration:** The quote is displayed using cowsay, which wraps the message in a fun ASCII animal.
 - **Colorful Output:** Uses colors to make the output more visually appealing.
@@ -55,6 +56,35 @@ cheerup
 - **Fortune Automation:** If `fortune` is not found, the CLI will attempt to install it automatically (on supported platforms).
 
 This tool is designed to brighten your terminal experience every time you run it!
+
+---
+
+## Example Output
+
+When you run `cheerup` for the first time, you'll be prompted for your name and emoji. On subsequent runs, you'll see something like this:
+
+```
+/ >🎉 Hi jv cheer up!
+
+ __________________________________________________________________________
+/ Spiritual leadership should remain spiritual leadership and the temporal \
+| power should not become too important in any church.                     |
+| - Eleanor Roosevelt                                                      |
+\                                                                          /
+ --------------------------------------------------------------------------
+  \
+   \ ,   _ ___.--'''`--''//-,-_--_.
+      \`"' ` || \\ \\ \\/ / // / ,-\\`,_
+     /'`  \ \ || Y  | \|/ / // / - |__ `-,
+    /o"\  ` \ `\ |  | ||/ // | \/  \  `-._`-,_.,
+   /  _.-. `.-\,___/\ _/|_/_\_\/_|_/ |     `-._._)
+   `-'``/  /  |  // \__/\__  /  \__/ \
+        `-'  /-\/  | -|   \__ \   |-' |
+          __/\ / _/ \/ __,-'   ) ,' _|'
+         (((__/(((_.' ((___..-'((__,'
+```
+
+> The output may vary depending on your system, the available fortune quotes, and cowsay animals.
 
 ---
 
