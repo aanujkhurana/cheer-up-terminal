@@ -1,0 +1,17 @@
+{
+  "name": "cheer-up-cli",
+  "version": "1.0.0",
+  "description": "CLI tool to brighten your terminal with ASCII art and cowsay quotes!",
+  "bin": {
+    "cheerup": "./bin/index.js"
+  },
+  "author": "Anuj Khurana",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "node ./bin/setup-shell-hook.js"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "cowsay": "^1.5.0"
+  }
+}
