@@ -1,7 +1,5 @@
 # cheer-up-terminal
 
-[![GitHub Repo](https://img.shields.io/badge/GitHub-cheer--up--terminal-blue?logo=github)](https://github.com/aanujkhurana/cheer-up-terminal)
-
 Brighten your terminal with a personalized greeting, colorful ASCII art, and a random quote—every time you open a new shell!
 
 ---
@@ -52,9 +50,10 @@ cheerup
 
 After installation, simply run:
 ```sh
-cheerup
+cheerup [--color | --no-color]
 ```
-On first run, you'll be prompted for your name and favorite emoji. These are saved for future sessions (in `~/.cheerup-config.json`).
+- On first run, you'll be prompted for your name, favorite emoji, and whether you want colorful output (unless you specify --color or --no-color).
+- The color preference is saved in your config and used for all future runs. You can change it by running with --color or --no-color again, or by editing `~/.cheerup-config.json`.
 
 You can also add an alias manually:
 ```sh
@@ -68,7 +67,7 @@ alias cheerup="node /path/to/cheer-up-terminal/bin/index.js"
 When you run `cheerup`, you'll see output like this:
 
 ```
-/ >🌈 Hi Anuj cheer up!
+/ >🌈 Hi you cheer up!
 
  _______________________________________
 / You're awesome!                       \
