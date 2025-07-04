@@ -1,6 +1,6 @@
 {
   "name": "cheer-up-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "CLI tool to brighten your terminal with ASCII art, cowsay quotes, and a personalized greeting!",
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "chalk": "^4.1.2",
+    "cheer-up-cli": "^1.0.2",
     "cowsay": "^1.5.0",
     "inquirer": "^8.2.4"
   }
