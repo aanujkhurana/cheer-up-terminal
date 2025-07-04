@@ -12,9 +12,59 @@ console.log(chalk.cyan(asciiArt));
 
 // 2. Load quote (via `fortune` if available)
 let quote = "You're awesome!";
+let fortuneAvailable = true;
 try {
   quote = execSync('fortune', { encoding: 'utf8' });
 } catch {
+  fortuneAvailable = false;
+}
+
+// Attempt to install fortune if not available
+if (!fortuneAvailable) {
+  const os = require('os');
+  const platform = os.platform();
+  let installCmd = null;
+  if (platform === 'darwin') {
+    installCmd = 'brew install fortune';
+  } else if (platform === 'linux') {
+    // Try to detect distro
+    try {
+      const lsb = execSync('lsb_release -is', { encoding: 'utf8' }).toLowerCase();
+      if (lsb.includes('ubuntu') || lsb.includes('debian')) {
+        installCmd = 'sudo apt-get update && sudo apt-get install -y fortune';
+      } else if (lsb.includes('fedora')) {
+        installCmd = 'sudo dnf install -y fortune-mod';
+      } else if (lsb.includes('arch')) {
+        installCmd = 'sudo pacman -S --noconfirm fortune-mod';
+      }
+    } catch {
+      // Fallback: try common package managers
+      if (fs.existsSync('/etc/debian_version')) {
+        installCmd = 'sudo apt-get update && sudo apt-get install -y fortune';
+      } else if (fs.existsSync('/etc/fedora-release')) {
+        installCmd = 'sudo dnf install -y fortune-mod';
+      } else if (fs.existsSync('/etc/arch-release')) {
+        installCmd = 'sudo pacman -S --noconfirm fortune-mod';
+      }
+    }
+  }
+  if (installCmd) {
+    console.log(chalk.yellow(`Attempting to install 'fortune' with: ${installCmd}`));
+    try {
+      execSync(installCmd, { stdio: 'inherit' });
+      // Try again
+      quote = execSync('fortune', { encoding: 'utf8' });
+      fortuneAvailable = true;
+    } catch {
+      console.warn(chalk.red("Automatic installation of 'fortune' failed. Please install it manually."));
+      quote = "Install 'fortune' to get dynamic quotes!";
+    }
+  } else {
+    console.warn(chalk.yellow("Automatic installation of 'fortune' is not supported on this platform. Please install it manually."));
+    quote = "Install 'fortune' to get dynamic quotes!";
+  }
+}
+if (fortuneAvailable && !quote) {
   quote = "Install 'fortune' to get dynamic quotes!";
 }
 

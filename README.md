@@ -12,6 +12,8 @@ cheer up your terminal
    ```
    This will make the `cheerup` command available everywhere and attempt to add it to your shell config so it runs when you open a new terminal.
 
+   > **Note:** The CLI will also attempt to install `fortune` automatically if it is not found on your system (on supported platforms). You may be prompted for your password or permission to install system packages.
+
 2. **Manual Installation:**
    Clone this repository:
    ```sh
@@ -50,5 +52,35 @@ cheerup
 - **Cowsay Integration:** The quote is displayed using cowsay, which wraps the message in a fun ASCII animal.
 - **Colorful Output:** Uses colors to make the output more visually appealing.
 - **Shell Automation:** On install, the CLI attempts to add itself to your shell config so it runs automatically when you open a new terminal.
+- **Fortune Automation:** If `fortune` is not found, the CLI will attempt to install it automatically (on supported platforms).
 
 This tool is designed to brighten your terminal experience every time you run it!
+
+---
+
+## Installing `fortune` Manually
+
+If you want to install `fortune` yourself, here are instructions for common platforms:
+
+- **macOS (Homebrew):**
+  ```sh
+  brew install fortune
+  ```
+- **Ubuntu/Debian:**
+  ```sh
+  sudo apt-get update
+  sudo apt-get install fortune
+  ```
+- **Fedora:**
+  ```sh
+  sudo dnf install fortune-mod
+  ```
+- **Arch Linux:**
+  ```sh
+  sudo pacman -S fortune-mod
+  ```
+- **Windows:**
+  - Use Windows Subsystem for Linux (WSL) and follow the Linux instructions above, or
+  - Download a Windows-compatible version from [GnuWin32](http://gnuwin32.sourceforge.net/packages/fortune.htm) or use a similar tool.
+
+If you have any issues, please check your platform's package manager or documentation for details.
