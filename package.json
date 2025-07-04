@@ -1,11 +1,29 @@
 {
   "name": "cheer-up-cli",
-  "version": "1.0.0",
-  "description": "CLI tool to brighten your terminal with ASCII art and cowsay quotes!",
+  "version": "1.0.1",
+  "description": "CLI tool to brighten your terminal with ASCII art, cowsay quotes, and a personalized greeting!",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aanujkhurana/cheer-up-terminal.git"
+  },
+  "homepage": "https://github.com/aanujkhurana/cheer-up-terminal#readme",
+  "bugs": {
+    "url": "https://github.com/aanujkhurana/cheer-up-terminal/issues"
+  },
+  "keywords": [
+    "cli",
+    "terminal",
+    "ascii",
+    "cowsay",
+    "fortune",
+    "greeting",
+    "cheerful",
+    "fun"
+  ],
   "bin": {
     "cheerup": "./bin/index.js"
   },
-  "author": "Anuj Khurana",
+  "author": "Anuj Khurana <anujkhurana@gmail.com>",
   "license": "MIT",
   "scripts": {
     "postinstall": "node ./bin/setup-shell-hook.js"

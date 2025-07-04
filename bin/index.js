@@ -57,7 +57,6 @@ async function getUserConfig() {
 
   // Attempt to install fortune if not available
   if (!fortuneAvailable) {
-    const os = require('os');
     const platform = os.platform();
     let installCmd = null;
     if (platform === 'darwin') {
